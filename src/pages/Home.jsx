@@ -1,47 +1,39 @@
-import React, { useEffect } from 'react'
-import ArtistCart from '../components/Cards/ArtistCart'
-import axios from "axios"
-import { useDispatch } from 'react-redux'
-import { fetchStart, fetchSucess, fetchFail } from "../features/fetchSlice"
+import React, { useEffect } from "react";
+import ArtistCard from "../components/Cards/ArtistCard";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchStart, fetchSuccess, fetchError } from "../features/FetchSlice";
 
 const Home = () => {
-  // const { fetchStart, fetchSuccess, fetchFail } = useSelector((state) => state.lastfm)
-  const dispatch = useDispatch()
-  const API_KEY = process.env.REACT_APP_API_KEY
-  const API_URL = `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${API_KEY}&format=json `
-
+  const {artist} = useSelector((state)=>state.lastfm)
+  const dispatch = useDispatch();
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const url = `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${API_KEY}&format=json`;
 
   const getTopArtist = async () => {
-    dispatch(fetchStart())
-
-
+    dispatch(fetchStart());
     try {
-      const { data } = await axios.get(API_URL)
-
-      const {artists:{artist}} = data
-      console.log(data);
-      dispatch(fetchSucess(artist))
-
+      const { data } = await axios(url);
+      const {artists : {artist}} = data
+      dispatch(fetchSuccess(artist));
     } catch (error) {
-      console.log(error)
-      dispatch(fetchFail())
+      console.log(error);
+      dispatch(fetchError());
     }
-  }
-  
+  };
+
   useEffect(() => {
-    getTopArtist()
-  }, [])
-  
-
-
+    getTopArtist();
+  }, []);
 
   return (
     <div>
       <h1>Artist List</h1>
-      <ArtistCart/>
-       
+      {artist?.map((item,index) => (
+        <ArtistCard key={index} {...item} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
