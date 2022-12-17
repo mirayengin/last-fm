@@ -13,7 +13,7 @@ const TopAlbum = ({ name, playcount, listeners, image, url }) => {
     >
       <img
         className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-        src={image?.[0]["#text"]}
+        src={image?.[2]["#text"]}
         alt=""
       />
       <div className="flex flex-col justify-between p-4 leading-normal">
