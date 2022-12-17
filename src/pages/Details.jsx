@@ -36,8 +36,10 @@ const Details = () => {
 
   return (
     <div>
-      <TopAlbum />
-      <TopTrack />
+      
+      {topAlbumList["topalbums"]?.album?.map((item, indeks) => <TopAlbum key={indeks}  {...item} />)}
+      {topTrackList["toptracks"]?.track?.map((item, indeks) => <TopTrack key={indeks}  {...item}/> )}
+      
     </div>
   );
 };
