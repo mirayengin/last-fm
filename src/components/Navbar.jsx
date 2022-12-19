@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setDarkMode } from "../features/FetchSlice";
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const dispatch = useDispatch()
+  const { darkMode } = useSelector((state) => state.lastfm)
   darkMode
     ? localStorage.setItem("color-theme", "")
     : localStorage.setItem("color-theme", "dark");
@@ -17,7 +20,7 @@ const Navbar = () => {
       <button
         type="button"
         title="Toggle dark/light mode"
-        onClick={() => setDarkMode(!darkMode)}
+        onClick={() => dispatch(setDarkMode(!darkMode)) }
         className="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
       >
         {darkMode ? (

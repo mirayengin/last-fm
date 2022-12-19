@@ -16,10 +16,10 @@ const persistConfig = {
   key: "root",
   storage,
 };
-const persistedReducer = persistReducer(persistConfig);
+const persistedReducer = persistReducer(persistConfig, FetchSlice);
 const store = configureStore({
   reducer: {
-    lastfm: FetchSlice,
+    lastfm: persistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
