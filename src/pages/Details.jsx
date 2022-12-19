@@ -29,6 +29,7 @@ const Details = () => {
   useEffect(() => {
     axios.get(topAlbumsUrl).then((res) => settopAlbumList(res.data));
     getTopTrack();
+    // eslint-disable-next-line
   }, []);
 
   console.log(topAlbumList);

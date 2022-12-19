@@ -5,10 +5,11 @@ import { setDarkMode } from "../features/FetchSlice";
 const Navbar = () => {
   const dispatch = useDispatch()
   const { darkMode } = useSelector((state) => state.lastfm)
+  
   darkMode
     ? localStorage.setItem("color-theme", "")
     : localStorage.setItem("color-theme", "dark");
-  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+ 
   if (localStorage.getItem("color-theme") === "dark") {
     document.documentElement.classList.add("dark");
   } else {

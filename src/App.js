@@ -1,6 +1,6 @@
 import "./App.css";
 import Router from "./router/Router";
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import store, { persistor } from "./app/store";
 import { PersistGate } from "redux-persist/integration/react";
 
