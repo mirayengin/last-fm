@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import TopAlbum from "../components/TopAlbum";
 import TopTrack from "../components/TopTrack";
 
 const Details = () => {
   const { name } = useParams();
+  const { state: image } = useLocation()
   console.log(name);
 
   const [topAlbumList, settopAlbumList] = useState([]);
@@ -24,23 +25,36 @@ const Details = () => {
       console.log(error);
     }
   };
-  
+
   useEffect(() => {
     axios.get(topAlbumsUrl).then((res) => settopAlbumList(res.data));
-    getTopTrack()
-  },[]);
-  
+    getTopTrack();
+  }, []);
+
   console.log(topAlbumList);
   console.log(topTrackList);
 
-
   return (
-    <div>
-      
-      {topAlbumList["topalbums"]?.album?.map((item, indeks) => <TopAlbum key={indeks}  {...item} />)}
-      {topTrackList["toptracks"]?.track?.map((item, indeks) => <TopTrack key={indeks}  {...item}/> )}
-      
-    </div>
+    <div className="flex flex-col align-middle justify-center">
+      <div className="flex justify-center">
+        <img src={image?.[0]["#text"]} alt="" />
+        <h1>{name}</h1>
+      </div>
+    <div className="flex justify-evenly">
+      <div>
+      <h2>Top Albums</h2>
+        {topAlbumList["topalbums"]?.album?.map((item, indeks) => (
+          <TopAlbum key={indeks} {...item} />
+        ))}
+      </div>
+      <div>
+      <h2>Top Track</h2>
+        {topTrackList["toptracks"]?.track?.map((item, indeks) => (
+          <TopTrack key={indeks} {...item} />
+        ))}
+      </div>
+      </div>
+      </div>
   );
 };
 
