@@ -1,8 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const TopAlbum = ({ name, artist, image, playcount }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="flex justify-center my-4 ">
