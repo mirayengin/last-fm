@@ -16,13 +16,13 @@ const Navbar = () => {
     document.documentElement.classList.remove("dark");
   }
   return (
-    <nav className="flex justify-between p-2">
-      <Link to={"/"}>Go Home</Link>
+    <nav className="flex justify-around py-4 bg-slate-400">
+      <Link  to={"/"} className="text-rose-600 font-bold text-2xl border-double border-2 border-rose-600 p-2 rounded-lg bg-slate-50">Go Home</Link>
       <button
         type="button"
         title="Toggle dark/light mode"
         onClick={() => dispatch(setDarkMode(!darkMode)) }
-        className="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        className="flex justify-center  items-center w-20 p-2 mr-2 text-xl font-extrabold text-gray-700 bg-white rounded-full border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
       >
         {darkMode ? (
           <svg

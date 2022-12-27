@@ -58,7 +58,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <h1>Artist List</h1>
+      <h1 className="text-center py-4 mb-16 font-bold text-2xl text-amber-500 shadow-lg shadow-amber-500 bg-slate-600">Artist List</h1>
       {artistState?.map((item, index) => (
         <ArtistCard key={index} {...item} />
       ))}
