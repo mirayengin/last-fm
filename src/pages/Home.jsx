@@ -3,6 +3,7 @@ import ArtistCard from "../components/Cards/ArtistCard";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { fetchError } from "../features/FetchSlice";
+import { toastErrorNotify, toastSuccessNotify } from "../helpers/ToastNotify";
 const Home = () => {
   const [pageParam, setPageParam] = useState(1);
   const [artistState, setArtistState] = useState([]);
@@ -10,10 +11,17 @@ const Home = () => {
   const dispatch = useDispatch();
   const API_KEY = process.env.REACT_APP_API_KEY;
   const url = `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${API_KEY}&page=${pageParam}&limit=10&format=json`;
+
+  //? infinity scrollda her seferde on tane veri alıyoruz burda
   const getTopArtist = async () => {
     setLoading(true);
     try {
+      //? Artist datalarını çekiyoruz
       const { data } = await axios(url);
+      toastSuccessNotify("Data get success")
+
+
+      //! data nın içinden artist i destruct ediyoruz
       const {
         artists: { artist },
       } = data;
@@ -34,10 +42,13 @@ const Home = () => {
       console.log(artistState);
     } catch (error) {
       console.log(error);
+      toastErrorNotify(error)
       setLoading(false);
       dispatch(fetchError());
     }
   };
+
+   //! infinityscroll 
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop + 1 >=
@@ -47,10 +58,14 @@ const Home = () => {
     }
   };
   console.log(pageParam);
+
+  //! page değiştiğinde veri çek diyoruz
   useEffect(() => {
     getTopArtist();
     // eslint-disable-next-line
   }, [pageParam]);
+
+ 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
