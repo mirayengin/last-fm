@@ -18,7 +18,7 @@ const Home = () => {
     try {
       //? Artist datalarını çekiyoruz
       const { data } = await axios(url);
-      toastSuccessNotify("Data get success")
+      toastSuccessNotify("Artist data get success")
 
 
       //! data nın içinden artist i destruct ediyoruz
@@ -42,7 +42,7 @@ const Home = () => {
       console.log(artistState);
     } catch (error) {
       console.log(error);
-      toastErrorNotify(error)
+      toastErrorNotify("Artist data doesnt get success")
       setLoading(false);
       dispatch(fetchError());
     }

@@ -3,8 +3,8 @@ import Router from "./router/Router";
 import { Provider } from "react-redux";
 import store, { persistor } from "./app/store";
 import { PersistGate } from "redux-persist/integration/react";
+import { ToastContainer } from "react-toastify";
 
-import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
     <div className="bg-grey-100 dark:bg-[#23242a]">
       <Provider store={store}>
         <PersistGate  persistor={persistor}>
-
+        <ToastContainer/>
         <Router />
         </PersistGate>
       </Provider>
