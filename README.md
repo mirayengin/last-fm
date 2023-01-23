@@ -1,6 +1,6 @@
 # Last Fm
 
-<!-- ### Check The Live Website ➡️ [Live Website](https://sekunev-last-fm.netlify.app/) -->
+### Check The Live Website ➡️ [Live Website](https://sekunev-last-fm.netlify.app/)
 
 ## Description
 
@@ -8,7 +8,7 @@ Project aims to create a Last Fm App.
 
 ### Visualization of the Website
 
-<!-- ![image](https://github.com/Sekunev/last-fm/blob/main/src/assest/AnimationProject.gif) -->
+![image](./last-fm.gif)
 
 ## Project Skeleton
 
@@ -31,8 +31,6 @@ SOLUTION
 │    │       └── TopTrack.jsx
 │    ├── features
 │    │       └── FetchSlice.jsx
-│    ├── helpers
-│    │       └── ToastNotify.js
 │    ├── pages
 │    │       ├── Details.jsx
 │    │       └── Home.jsx
@@ -53,4 +51,4 @@ SOLUTION
 
 ### Used in this project
 
-👉 I mastered ReactJS, React Router, react-dom, Reduxjs/toolkit, redux-persist, axios, Tailwind, Darkmode, infinite scroll, toastify features in this project. You can see the visual representation of the website above.
+👉 I mastered ReactJS, React Router, react-dom, Reduxjs/toolkit, redux-persist, axios, Tailwind, Darkmode, infinite scroll features in this project. You can see the visual representation of the website above.
