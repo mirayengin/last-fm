@@ -6,7 +6,7 @@ const initialState = {
   darkMode:false
 };
 
-const FetchSlice = createSlice({
+const FetchSlice1 = createSlice({
   name: "lastfm",
   initialState,
   reducers: {
@@ -22,6 +22,6 @@ const FetchSlice = createSlice({
   },
 });
 
-export const {fetchError, setDarkMode } = FetchSlice.actions;
+export const {fetchError, setDarkMode } = FetchSlice1.actions;
 
-export default FetchSlice.reducer;
+export default FetchSlice1.reducer;

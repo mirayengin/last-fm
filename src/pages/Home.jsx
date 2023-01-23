@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ArtistCard from "../components/Cards/ArtistCard";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { fetchError } from "../features/FetchSlice";
+import { fetchError } from "../features/fetchSlice";
 import { toastErrorNotify, toastSuccessNotify } from "../helpers/ToastNotify";
 const Home = () => {
   const [pageParam, setPageParam] = useState(1);

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import FetchSlice from "../features/FetchSlice";
+import FetchSlice1 from "../features/fetchSlice";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import {
   persistStore,
@@ -16,7 +16,7 @@ const persistConfig = {
   key: "root",
   storage,
 };
-const persistedReducer = persistReducer(persistConfig, FetchSlice);
+const persistedReducer = persistReducer(persistConfig, FetchSlice1);
 const store = configureStore({
   reducer: {
     lastfm: persistedReducer,

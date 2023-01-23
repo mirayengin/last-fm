@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setDarkMode } from "../features/FetchSlice";
+import { setDarkMode } from "../features/fetchSlice";
 const Navbar = () => {
   const dispatch = useDispatch()
   const { darkMode } = useSelector((state) => state.lastfm)
