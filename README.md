@@ -1,6 +1,6 @@
 # Last Fm
 
-### Check The Live Website ➡️ [Live Website](https://sekunev-last-fm.netlify.app/)
+### Check The Live Website ➡️ [Live Website](https://last-fm-mirayengin.vercel.app/)
 
 ## Description
 
